@@ -7,7 +7,6 @@ use Intervention\Image\Facades\Image;
 use Illuminate\Http\Request;
 use App\Http\Requests\GalleryRequest;
 use App\Models\Gallery;
-// use Image;
 use File;
 
 class GalleryController extends Controller

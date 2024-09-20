@@ -44,8 +44,8 @@
         <div class="content">
 
             @include('backend.layouts.header')
-
             @yield('content')
+
             <!-- Footer Start -->
             @include('backend.layouts.footer')
             <!-- Footer End -->

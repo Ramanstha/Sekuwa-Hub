@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Subcategory extends Model
+class Menu extends Model
 {
     use HasFactory;
     protected $guarded = [];
@@ -13,7 +13,7 @@ class Subcategory extends Model
     public function Category(){
         return $this->belongsTo(Category::class);
     }
-    public function Menu(){
-        return $this->hasMany(Menu::class,'subcategory_id');
+    public function Subcategory(){
+        return $this->belongsTo(SubCategory::class);
     }
 }

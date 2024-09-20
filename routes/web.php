@@ -13,9 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 //////////////////////////////////////////////////////User//////////////////////////////////////////////////////
+
+Route::get('/',[App\Http\Controllers\Frontend\HomeController::class,'Home'])->name('Home');
+Route::get('/about-us',[App\Http\Controllers\Frontend\HomeController::class,'aboutus'])->name('about.us');
+Route::get('/services',[App\Http\Controllers\Frontend\AboutusController::class,'service'])->name('service');
+Route::get('/menus',[App\Http\Controllers\Frontend\AboutusController::class,'menu'])->name('menu');
 Route::get('/contact-us',[App\Http\Controllers\Frontend\ContactusController::class,'Contact'])->name('contact');
+Route::get('/our-special',[App\Http\Controllers\Frontend\ContactusController::class,'special'])->name('special');
+Route::get('/testimonial',[App\Http\Controllers\Frontend\ContactusController::class,'testimonial'])->name('testimonial');
 
 
 //////////////////////////////////////////////////////Admin//////////////////////////////////////////////////////
@@ -23,13 +29,13 @@ Route::get('/contact-us',[App\Http\Controllers\Frontend\ContactusController::cla
 Route::get('/admin-login',[App\Http\Controllers\Auth\LoginController::class,'Login'])->name('login');
 Route::post('/admin-postlogin',[App\Http\Controllers\Auth\LoginController::class,'PostLogin'])->name('login.perform');
 
-Route::group(['middleware' => ['auth']],function () {
-
 Route::get('/admin',[App\Http\Controllers\Backend\DashboardController::class,'Dashboard'])->name('Dashboard');
+// Route::group(['middleware' => ['auth']],function () {
 
-Route::get('logout', [App\Http\Controllers\Auth\LoginController::class, 'Logout'])->name('logout');
 
-});
+// Route::get('logout', [App\Http\Controllers\Auth\LoginController::class, 'Logout'])->name('logout');
+
+// });
 
 ////////////////Sitesetting////////////////
 Route::get('/sitesetting',[App\Http\Controllers\Backend\SitesettingController::class,'Sitesetting'])->name('create.sitesetting');
@@ -103,8 +109,33 @@ Route::post('/client-update/{id}',[App\Http\Controllers\Backend\ClientController
 Route::get('/client-delete/{id}',[App\Http\Controllers\Backend\ClientController::class,'Delete'])->name('delete.client');
 Route::get('/client-status',[App\Http\Controllers\Backend\ClientController::class,'clientstatus'])->name('status.client');
 
+/////////////////Category//////////////////
+Route::get('/category',[App\Http\Controllers\Backend\CategoryController::class,'Category'])->name('create.category');
+Route::post('/category-store',[App\Http\Controllers\Backend\CategoryController::class,'Store'])->name('store.category');
+Route::get('/category-view',[App\Http\Controllers\Backend\CategoryController::class,'View'])->name('view.category');
+Route::get('/category-edit/{id}',[App\Http\Controllers\Backend\CategoryController::class,'Edit'])->name('edit.category');
+Route::post('/category-update/{id}',[App\Http\Controllers\Backend\CategoryController::class,'Update'])->name('update.category');
+Route::get('/category-delete/{id}',[App\Http\Controllers\Backend\CategoryController::class,'Delete'])->name('delete.category');
+Route::get('/category-status',[App\Http\Controllers\Backend\CategoryController::class,'categorystatus'])->name('status.category');
+
+/////////////////Subcategory//////////////////
+Route::get('/subcategory',[App\Http\Controllers\Backend\SubcategoryController::class,'Subcategory'])->name('create.subcategory');
+Route::post('/subcategory-store',[App\Http\Controllers\Backend\SubcategoryController::class,'Store'])->name('store.subcategory');
+Route::get('/subcategory-view',[App\Http\Controllers\Backend\SubcategoryController::class,'View'])->name('view.subcategory');
+Route::get('/subcategory-edit/{id}',[App\Http\Controllers\Backend\SubcategoryController::class,'Edit'])->name('edit.subcategory');
+Route::post('/subcategory-update/{id}',[App\Http\Controllers\Backend\SubcategoryController::class,'Update'])->name('update.subcategory');
+Route::get('/subcategory-delete/{id}',[App\Http\Controllers\Backend\SubcategoryController::class,'Delete'])->name('delete.subcategory');
+Route::get('/subcategory-status',[App\Http\Controllers\Backend\SubcategoryController::class,'subcategorystatus'])->name('status.subcategory');
+
+/////////////////Menu//////////////////
+Route::get('/menu',[App\Http\Controllers\Backend\MenuController::class,'Menu'])->name('create.menu');
+Route::post('/menu-store',[App\Http\Controllers\Backend\MenuController::class,'Store'])->name('store.menu');
+Route::get('/menu-view',[App\Http\Controllers\Backend\MenuController::class,'View'])->name('view.menu');
+Route::get('/menu-edit/{id}',[App\Http\Controllers\Backend\MenuController::class,'Edit'])->name('edit.menu');
+Route::post('/menu-update/{id}',[App\Http\Controllers\Backend\MenuController::class,'Update'])->name('update.menu');
+Route::get('/menu-delete/{id}',[App\Http\Controllers\Backend\MenuController::class,'Delete'])->name('delete.menu');
+Route::get('/menu-status',[App\Http\Controllers\Backend\MenuController::class,'menustatus'])->name('status.menu');
+
 //////////////////////////////////////////////////////////////User//////////////////////////////////////////////////////////////
 
-///////////////////////Home///////////////////////
-Route::get('/',[App\Http\Controllers\Frontend\HomeController::class,'Home'])->name('Home');
-Route::get('/aboutus',[App\Http\Controllers\Frontend\HomeController::class,'Aboutus'])->name('Aboutus');
+

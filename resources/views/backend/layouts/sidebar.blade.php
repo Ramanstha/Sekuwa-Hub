@@ -67,9 +67,9 @@
                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
                          class="fa fa-phone me-2"></i>Food Menu</a>
                  <div class="dropdown-menu bg-transparent border-0">
-                     <a href="{{route('view.contact')}}" class="dropdown-item">Category</a>
-                     <a href="{{route('view.contact')}}" class="dropdown-item">Sub-Category</a>
-                     <a href="{{route('view.socialmedia')}}" class="dropdown-item">Items</a>
+                     <a href="{{route('view.category')}}" class="dropdown-item">Category</a>
+                     <a href="{{route('view.subcategory')}}" class="dropdown-item">Sub-Category</a>
+                     <a href="{{route('view.menu')}}" class="dropdown-item">Items</a>
                  </div>
              </div>
 
@@ -78,8 +78,8 @@
              <a href="{{route('view.special')}}" class="nav-item nav-link"><i class="fa fa-smile me-2"></i>Special
                  Items</a>
 
-             <a href="{{route('view.client')}}" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Client
-                 Message</a>
+             <a href="{{route('view.client')}}" class="nav-item nav-link"><i
+                     class="fa fa-table me-2"></i>Testimonial</a>
 
              <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a>
 

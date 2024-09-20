@@ -10,6 +10,9 @@ use App\Models\Banner;
 use App\Models\Contact;
 use App\Models\Client;
 use App\Models\Special;
+use App\Models\Menu;
+use App\Models\Category;
+use App\Models\SubCategory;
 
 class HomeController extends Controller
 {
@@ -17,15 +20,15 @@ class HomeController extends Controller
         $sitesetting=Sitesetting::orderBy('id','desc')->first();
         $banner=Banner::orderBy('id','desc')->first();
         $getcontact=Contact::orderBy('id','desc')->first();
+        $menu=Menu::orderBy('id','desc')->get();
         $client=Client::orderBy('id','desc')->get();
         $special=Special::orderBy('id','desc')->get();
-        return view('frontend.index',compact('sitesetting','banner','getcontact','client','special'));
+        return view('frontend.index',compact('sitesetting','banner','getcontact','client','special','menu'));
     }
 
-    public function Aboutus($id){
-        $aboutus=Aboutus::findorfail($id);
-        // $getbanner=Banner::orderBy('id','desc')->first();
-        // $getcontact=Contact::orderBy('id','desc')->first();
-        return view('frontend.index',compact('aboutus'));
+    public function aboutus(){
+        $sitesetting=Sitesetting::orderBy('id','desc')->first();
+        // $getaboutus=Aboutus::orderBy('id','desc')->first();
+        return view('frontend.content.aboutus',compact('sitesetting'));
     }
 }

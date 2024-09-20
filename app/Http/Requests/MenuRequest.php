@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SubcategoryRequest extends FormRequest
+class MenuRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,7 +22,10 @@ class SubcategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title'=>'required',
+            'category_id'=>'required',
+            'subcategory_id'=>'required',
+            'name'=>'required',
+            'price'=>'required',
         ];
     }
 }
